@@ -14,7 +14,7 @@ public class TablaPeriodica extends JFrame {
                 setLayout(new BorderLayout());
         
                 // Panel para la parte superior con 3 paneles
-                JPanel panelSuperior = new JPanel(new GridLayout(1, 3));
+                JPanel panelSuperior = new JPanel(new GridLayout(2, 3));
         
                 // Crear y agregar los tres paneles
                 for (int i = 0; i < 3; i++) {
@@ -75,23 +75,58 @@ public class TablaPeriodica extends JFrame {
                
 
         for (int i = 0; i < elementos.length; i++) {
-            JButton boton = new JButton("<html><center>" + elementos[i][0] + "<br/>" + elementos[i][1] + "<br/>" + elementos[i][2] + "</center></html>");
-            
-                boton.setBackground(Color.WHITE);
-            
-            
+               JButton boton = new JButton("<html><center>" + elementos[i][0] + "<br/>" + elementos[i][1] + "<br/>" + elementos[i][2] + "</center></html>");
+               //les doy colores a los elementos que se quiere
+               // Asignar colores personalizados
+               switch (elementos[i][0]) {
+                   case "H":
+                       boton.setBackground(Color.ORANGE);
+                       break;
+                   case "O":
+                       boton.setBackground(Color.ORANGE);
+                       break;
+                   case "Br":
+                       boton.setBackground(Color.ORANGE);
+                       break;
+                   case "Li":
+                       boton.setBackground(Color.BLUE);
+                       break;
+                   case "Na":
+                       boton.setBackground(Color.BLUE);
+                       break;
+                   case "Mg":
+                       boton.setBackground(Color.BLUE);
+                       break;
+                   case "Ca":
+                       boton.setBackground(Color.BLUE);
+                       break;
+                   case "Fe":
+                       boton.setBackground(Color.BLUE);
+                       break;
+                   case "Au":
+                       boton.setBackground(Color.BLUE);
+                       break;
+                   case "He":
+                       boton.setBackground(Color.DARK_GRAY);
+                       break;
+                   case "B":
+                       boton.setBackground(Color.GREEN);
+                       break;
+                   default:
+                    boton.setBackground(Color.WHITE);
+            }
+               
             boton.setPreferredSize(new Dimension(70, 70)); // Tamaño de cada botón
-
             // Define la posición del elemento en el GridBagLayout
             GridBagConstraints gbc = new GridBagConstraints();
-       
-               gbc.gridx = posiciones[i][1];
-               gbc.gridy = posiciones[i][0];
-            gbc.insets = new Insets(5, 5, 5, 5); // Espaciado entre botones
+                
+            gbc.gridx = posiciones[i][1];//columna
+            gbc.gridy = posiciones[i][0];//fila
+
+            gbc.insets = new Insets(1,1, 1, 1); // Espaciado entre botones
             panelTabla.add(boton, gbc);
-
         }
-
+        
         // Agrega el panel de la tabla al JFrame
         add(panelTabla, BorderLayout.CENTER);
     }
